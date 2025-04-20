@@ -17,7 +17,7 @@ const subjects = [
 const tableBody = document.getElementById("gradesTable");
 
 // تحميل العلامات المحفوظة إن وجدت
-let savedData = JSON.parse(localStorage.getItem("gradesData")) || {};
+let resrvedData = JSON.parse(localStorage.getItem("gradesData")) || {};
 
 subjects.forEach(subject => {
     let row = document.createElement("tr");
@@ -32,11 +32,11 @@ subjects.forEach(subject => {
     tableBody.appendChild(row);
 
     // تحميل العلامات المحفوظة إن وجدت
-    if (savedData[subject.name]) {
+    if (resrvedData[subject.name]) {
         let inputs = row.querySelectorAll(".grade");
-        inputs[0].value = savedData[subject.name].assignment;
-        inputs[1].value = savedData[subject.name].assessment;
-        inputs[2].value = savedData[subject.name].test;
+        inputs[0].value = resrvedData[subject.name].assignment;
+        inputs[1].value = resrvedData[subject.name].assessment;
+        inputs[2].value = resrvedData[subject.name].test;
     }
 });
 
